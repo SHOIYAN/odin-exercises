@@ -90,6 +90,28 @@ body {
     
 }
 
+.card-section .card-wrapper .card-dots {
+    display: flex;
+    gap: 2rem;
+    height: 2rem;
+    padding: 8px 16px;
+    margin-top: 1rem;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    background-color: #849cfd;
+}
+.card-section .card-wrapper .card-dots li {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #f4f4f4;
+}
+.card-section .card-wrapper .card-dots li:hover{
+    border: 2px solid #486bf7;
+}
+
 
 
 
