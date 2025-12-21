@@ -102,16 +102,22 @@ body {
     background-color: #849cfd;
 }
 .card-section .card-wrapper .card-dots li {
-    width: 15px;
-    height: 15px;
-    cursor: pointer;
-    border-radius: 50%;
-    background-color: #f4f4f4;
+  display: block;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid #f4f4f4;
 }
-.card-section .card-wrapper .card-dots li:hover{
-    border: 2px solid #486bf7;
+.card-section .card-wrapper .card-dots li:hover {
+  border-color: #486bf7;
 }
 
-
-
-
+.card-section .card-wrapper .card-dots li.active {
+  background-color: #486bf7;
+  transform: scale(1.25);
+}
+.card-wrapper .card-list {
+    transition: transform 0.4s ease;
+}
