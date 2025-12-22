@@ -1,0 +1,72 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f6f6f6;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-section #form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  gap: 1rem;
+}
+
+.form-section #form #fieldset {
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  gap: 0.25rem;
+  padding: 2rem 4rem;
+  flex-direction: column;
+}
+
+.form-section #form #fieldset span {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  min-height: 1.2rem;
+}
+.form-section #form #fieldset input {
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: large;
+  font-style: inherit;
+  outline: none;
+  border: 2px solid #242323;
+}
+
+.form-section #form #fieldset input:invalid {
+  border-color: red;
+}
+
+.form-section #form #fieldset input:valid {
+  border-color: green;
+}
+.form-section #form #fieldset .error {
+  color: red;
+}
+
+.form-section #form #submit {
+  font-style: inherit;
+  font-size: large;
+  padding: 0.5rem 1.2rem;
+  background-color: whitesmoke;
+  border-radius: 8px;
+  outline: none;
+  border: 2px solid grey;
+  cursor: pointer;
+}
+
+.form-section #form #submit:hover {
+  background-color: #757575;
+  color: white;
+}
+.form-section #form #submit:active {
+  transform: translateY(2px);
+}
