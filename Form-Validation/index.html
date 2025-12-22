@@ -1,15 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Validation</title>
     <!-- Link to stylesheet -->
-     <link rel="stylesheet" href="index.css">
-     <!-- Link to Javascript -->
-      <script src="main.js" defer></script>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="index.css" />
+    <!-- Link to Javascript -->
+    <script src="main.js" defer></script>
+  </head>
+
+  <body>
+    <section class="form-section">
+      <form novalidate>
+        <fieldset>
+          <label for="email">Email :</label>
+          <input required type="email" id="email" name="email" />
+          <span class="error"></span>
+
+          <label for="country">Country :</label>
+          <input required type="text" id="country" name="country" />
+          <span class="error"></span>
+
+          <label for="postcode">Postal Code :</label>
+          <input
+            required
+            type="text"
+            minlength="4"
+            id="postcode"
+            name="postcode"
+          />
+          <span class="error"></span>
+
+          <label for="password">Password :</label>
+          <input
+            required
+            type="password"
+            minlength="8"
+            id="password"
+            name="password"
+          />
+          <span class="error"></span>
+
+          <label for="passwordConfirmation">Confirm Password :</label>
+          <input
+            required
+            type="password"
+            id="passwordConfirmation"
+            name="passwordConfirmation"
+          />
+          <span class="error"></span>
+        </fieldset>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </body>
 </html>
