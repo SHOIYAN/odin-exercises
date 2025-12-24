@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Working with api's</title>
-</head>
-<body>
-    <img src="#">
-    <script></script>
-    
-</body>
+  </head>
+  <body>
+    <img src="#" />
+    <script>
+      const img = document.querySelector("img");
+      fetch(
+        "https://api.giphy.com/v1/gifs/translate?api_key=KOd0MudwmHPi6sq9q2XWSGbj6XXsD8Hj&s=cat"
+      )
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (response) {
+          img.src = response.data.images.original.url;
+        });
+    </script>
+  </body>
 </html>
