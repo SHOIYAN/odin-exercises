@@ -4,20 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Working with api's</title>
+    <!-- link to css -->
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <img src="#" />
-    <script>
-      const img = document.querySelector("img");
+    <div class="giphContainer">
+      <h2>Giph Search</h2>
+      <div class="giphImage"><img src="#" /></div>
+      <div class="giphOperators">
+        <input class="input" type="text" placeholder="Search..." />
+        <button class="searchButton">Search</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    const img = document.querySelector(".giphImage img");
+    const searchInput = document.querySelector(".input");
+    const searchButton = document.querySelector(".searchButton");
+
+    function getNewImage() {
+      const apiKey = 'YOUR_API_KEY_HERE';
+      const searchTerm = searchInput.value;
+
+      img.alt = "Loading...";
+      img.src = "";
+
       fetch(
-        "https://api.giphy.com/v1/gifs/translate?api_key=KOd0MudwmHPi6sq9q2XWSGbj6XXsD8Hj&s=cat"
+        `https://api.giphy.com/v1/gifs/translate?api_key=${apiKey}&s=${searchTerm}`
       )
         .then(function (response) {
+          if (!response.ok) {
+            throw new Error(`${response.status} API Error`);
+          }
+
           return response.json();
         })
-        .then(function (response) {
-          img.src = response.data.images.original.url;
+        .then(function (apiData) {
+          img.src = apiData.data.images.original.url;
+        })
+        .catch(function (error) {
+          console.error(error);
         });
-    </script>
-  </body>
+    }
+    searchButton.addEventListener("click", getNewImage);
+  </script>
 </html>
