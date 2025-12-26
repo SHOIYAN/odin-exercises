@@ -42,6 +42,7 @@
         
       } catch (error) {
         console.error(`Network error ${error}`);
+        img.alt = "Failed to load image";
       }
     }
     searchButton.addEventListener("click", getNewImage);
