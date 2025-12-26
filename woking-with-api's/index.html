@@ -22,29 +22,27 @@
     const searchInput = document.querySelector(".input");
     const searchButton = document.querySelector(".searchButton");
 
-    function getNewImage() {
-      const apiKey = 'YOUR_API_KEY_HERE';
-      const searchTerm = searchInput.value;
+    async function getNewImage() {
+      try {
+        const apiKey = "YOUR_API_KEY_HERE";
+        const searchTerm = searchInput.value;
 
-      img.alt = "Loading...";
-      img.src = "";
+        img.alt = "Loading...";
+        img.src = "";
 
-      fetch(
-        `https://api.giphy.com/v1/gifs/translate?api_key=${apiKey}&s=${searchTerm}`
-      )
-        .then(function (response) {
-          if (!response.ok) {
-            throw new Error(`${response.status} API Error`);
-          }
+        const response = await fetch(
+          `https://api.giphy.com/v1/gifs/translate?api_key=${apiKey}&s=${searchTerm}`
+        );
+        if (!response.ok) {
+          throw new Error(`${response.status} API Error`);
+        }
+        const apiData = await response.json();
 
-          return response.json();
-        })
-        .then(function (apiData) {
-          img.src = apiData.data.images.original.url;
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
+        img.src = apiData.data.images.original.url;
+        
+      } catch (error) {
+        console.error(`Network error ${error}`);
+      }
     }
     searchButton.addEventListener("click", getNewImage);
   </script>
